@@ -1,0 +1,80 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$ehlLN5AQTYlrbIHd336jLl$l6ylQuBX8aFrHZLsmQmEuYRsfO5fL4UT8r/QskuyKy0=",
+      "last_login": "2024-10-07T01:02:31.771Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-10-07T00:49:19.592Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+      "domain": "example.com",
+      "name": "example.com"
+    }
+  },
+  {
+    "model": "core.person",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "default_currency": null
+    }
+  },
+  {
+    "model": "openletsweb.content",
+    "pk": 1,
+    "fields": {
+      "name": "intro",
+      "time_updated": "2024-10-07T00:49:29.420Z",
+      "body": "",
+      "author": 1,
+      "site": 1
+    }
+  },
+  {
+    "model": "openletsweb.content",
+    "pk": 2,
+    "fields": {
+      "name": "about",
+      "time_updated": "2024-10-07T00:49:29.420Z",
+      "body": "about",
+      "author": 1,
+      "site": 1
+    }
+  },
+  {
+    "model": "openletsweb.content",
+    "pk": 3,
+    "fields": {
+      "name": "news_header",
+      "time_updated": "2024-10-07T00:49:29.420Z",
+      "body": "news_header",
+      "author": 1,
+      "site": 1
+    }
+  },
+  {
+    "model": "openletsweb.content",
+    "pk": 4,
+    "fields": {
+      "name": "contact",
+      "time_updated": "2024-10-07T00:49:29.420Z",
+      "body": "contact",
+      "author": 1,
+      "site": 1
+    }
+  }
+]

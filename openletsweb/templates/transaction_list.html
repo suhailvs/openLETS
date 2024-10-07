@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block container %}
+	<h2>Transactions</h2>
+	<p>View your full transaction list. The list includes automatic balance resolutions.</p>
+
+	<p><strong>Filters: </strong> <p>
+	<form action="{{ transaction_list }}" class="row">
+		{{filter_form.as_html}}
+		
+
+	</form>
+
+		<table class="zebra-striped">
+		<thead>
+			<tr>
+			<th>Type</th>
+			<th>Status</th>
+			<th>Person</th>
+			<th>Amount</th>
+			<th>Time</th>
+			<th>Confirmed Time</th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for record in records %}
+			<tr>
+			<td>{{ record.transaction_type|capfirst }}</td>
+			<td>{{ record.status|capfirst }}</td>
+			<td>{{ record.target_person }}</td>
+			<td>{{ record.value_repr }}</td>
+			<td>{{ record.transaction_time}}</td>
+			<td>{{ record.time_confirmed }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+{% endblock %}
+

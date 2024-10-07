@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+
+{% block container %}
+	<div class="content">
+
+		<div class="row">
+	{% block sidebar %}
+	<div class="span3 fixed">
+		<div class="well">
+			<h5>Menu</h5>
+			<ul class="unstyled">
+				{% if notifications %}
+				<li><a href="#notifications">Notifications</a></li>
+			{% endif %}
+				<li><a href="#newtransaction">New Transaction</a></li>
+				<li><a href="#recenttransactions">Recent Transactions</a></li>
+				<li><a href="#balances">Balances</a></li>
+				<li><a href="#export">Export</a></li>
+			</ul>
+	</div>
+	</div>
+	{% endblock %}
+
+	<div class="span13 offset3">
+
+	{% block messages %}
+	{% if messages %}
+		{% for message in messages %}
+			<div class="alert-message {{ message.tags}}" data-alert="alert">
+			<a class="close" href="#">×</a>
+			<p>{{ message }}</p>
+		</div>
+		{% endfor %}
+	{% endif %}
+	{% endblock %}
+
+	{% block content %}
+
+	{% if notifications %}
+	<section id="notifications">
+		<h2>Notifications</h2>
+		<p>Notifications for recent events.</p>
+		{% if notifications|length > 5 %}
+		  <a href="#" 
+		  	data-target="#notification-list" 
+			data-toggle-text="Hide"
+			data-add-class="full-view"
+			data-remove-class="reduced-view"
+			class="show-hide-toggle">Show more</a>
+		{% endif %}
+
+		<div id="notification-list" class="reduced-view">
+		<ul>
+		{% for notification in notifications %}
+			<li>{{ notification }}</li>
+		{% endfor %}
+		</ul>
+		</div>
+
+	</section>
+	{% endif %}
+
+	<section id="newtransaction">
+		<h2>New Transaction</h2>
+	{% if pending_trans_records %}
+	<h4>Pending Transactions</h4>
+	<p>Confirm, modify or reject incoming pending transactions.</p>
+
+		<table class="">
+		<thead>
+			<tr>
+			<th>Type</th>
+			<th>Person</th>
+			<th>Amount</th>
+			<th>Time</th>
+			<th></td>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for record in pending_trans_records %}
+			<tr>
+			<td>{{ record.targets_transaction_type|capfirst }}</td>
+			<td>{{ record.creator_person }}</td>
+			<td>{{ record.value_repr }}</td>
+			<td>{{ record.transaction_time}}</td>
+			<td>
+				{% if record.notes %}
+					<a href="#" class="btn info small"
+						rel="popover"
+						data-placement="left"
+						data-original-title="Notes from {{ record.creator_person }}"
+						data-content="{{ record.notes }}">notes</a>
+				{% endif %}
+			</td>
+			<td class="">
+				<a href="{% url 'transaction_confirm record.id' %}" class="btn small success">confirm</a>
+				<a data-controls-modal="trans-modify-modal-{{ record.id }}" 
+					data-keyboard="true"
+					data-backdrop="true"
+					href="#"
+					class="btn small"
+				>modify</a>
+				<a href="{% url 'transaction_reject record.id' %}" class="btn small danger">reject</a>
+			</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+
+		{% for record in pending_trans_records %}
+			<div id="trans-modify-modal-{{ record.id }}" class="modal hide fade in">
+				<div class="modal-header">
+					<a href="#" class="close">x</a>
+					<h3>Modify Transaction</h3>
+				</div>
+
+				<form action="{% url 'transaction_modify record.id' %}" method="POST">
+				{% csrf_token %}
+				<div class="modal-body">
+					<p>Complete the form with the transaction details to submit your
+					modified version of the transaction.</p>
+					{{ record.modify_form.as_p }}
+				</div>
+				<div class="modal-footer">
+					<input type="submit" class="btn primary" value="Modify">
+				</div>
+				</form>
+
+		  </div>
+		{% endfor %}
+	{% endif %}
+
+
+	<h4>Create a new transaction</h4>
+	<p>This transaction will remain in a pending 
+	state until the person on the other end of the transaction confirms the
+	transaction.</p>
+	<form method="post" action="{% url 'transaction_new' %}" class="row">
+		{% csrf_token %}
+		{{ new_transaction_form.non_field_errors }}
+		<div class="span7">
+					{{ new_transaction_form.part_main_col }}
+		</div>
+		<div class="span5">
+			<fieldset>
+				<p>Notes</p>
+			<p>
+				{{ new_transaction_form.notes }}
+			</p>
+			<p>
+				<input type="submit" class="btn primary" value="Create">
+			</p>
+			</fieldset>
+		</div>
+	</form>
+
+	</section>
+
+	<section id="recenttransactions">
+		<h2>Recent Transactions</h2>
+ 	<p>Your recent transaction history. 
+	View full <a href="{% url 'transaction_list' %}" class="strong">history</a>.</p>
+		<table class="zebra-striped">
+		<thead>
+			<tr>
+			<th>Type</th>
+			<th>Status</th>
+			<th>Person</th>
+			<th>Amount</th>
+			<th>Time</th>
+			<th>Confirmed Time</th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for record in recent_trans_records %}
+			<tr>
+			<td>{{ record.transaction_type|capfirst }}</td>
+			<td>{{ record.status|capfirst }}</td>
+			<td>{{ record.target_person }}</td>
+			<td>{{ record.value_repr }}</td>
+			<td>{{ record.transaction_time}}</td>
+			<td>{{ record.transaction.time_confirmed }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+	</section>
+
+	<section id="balances">
+		<h2>Balances</h2>
+	<p>Your active account balances.</p>
+	<table class="zebra-striped">
+		<thead>
+			<tr>
+			<th>Person</th>
+			<th>Amount</th>
+			<th>Last Change</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for balance in balances %}
+		<tr>
+			<td>{{ balance.other_person }}</td>
+			<td>{{ balance.relative_value_repr }}</td>
+			<td>{{ balance.balance.time_updated }}</td>
+			<td>
+				<a href="{% url 'transaction_list' %}?person={{ balance.other_person.id }}&currency={{ balance.balance.currency.id }}">History</a>
+			</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</section>
+
+	<section id="export">
+		<h2>Export Data</h2>
+	<p><a href="{% url 'export_data' %}" class="strong">Export</a> all your 
+	transfers and balances for your person records.</p>
+	</section>
+
+	{% endblock %}
+	</div>
+
+		</div>
+	</div>
+{% endblock %}
+

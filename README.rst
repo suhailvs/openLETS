@@ -18,3 +18,13 @@ openLETS has the following function goals:
 * allow users to act as exchanges by offering exchanges between currencies and to resolve balances
 * automatically attempt to normalize balances by traversing the user graph and resolve 'debt circles'
 
+
+Installation
+============
+
+```
+$ pip install -r requirements.txt
+$ python manage.py migrate
+$ python manage.py loaddata datas
+$ python manage.py runserver
+```
