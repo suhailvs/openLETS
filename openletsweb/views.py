@@ -17,6 +17,10 @@ from openletsweb import forms
 from openletsweb import web
 from openletsweb import models
 from openletsweb.util import trans_matcher
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 def index(request):
@@ -26,7 +30,7 @@ def index(request):
     intro = models.Content.objects.get(name="intro", site=config.SITE_ID)
     context = {
         "login_form": forms.LoginForm(),
-        "user_form": forms.UserCreateForm(web.form_data(request)),
+        "user_form": UserCreationForm(),  # forms.UserCreateForm(web.form_data(request)),
         "intro": intro,
         "site": Site.objects.get(id=config.SITE_ID),
     }
@@ -215,6 +219,29 @@ def user_update(request):
         messages.success(request, "Account updated.")
         return redirect("settings")
     return settings(request)
+
+
+from django.views.generic import CreateView
+
+
+class SignUpView(CreateView):
+    model = User
+    form_class = UserCreationForm
+
+    template_name = "index.html"
+
+    def get_context_data(self, **kwargs):
+        kwargs["login_form"] = forms.LoginForm()
+        kwargs["user_form"] = UserCreationForm()
+        # kwargs['intro'] = intro
+        kwargs["site"] = Site.objects.get(id=config.SITE_ID)
+        return super().get_context_data(**kwargs)
+
+    def form_valid(self, form):
+        user = form.save()
+        # login(self.request, user) #, backend='django.contrib.auth.backends.ModelBackend')
+        auth.login(self.request, user)
+        return redirect("home")
 
 
 @require_POST

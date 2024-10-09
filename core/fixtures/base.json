@@ -1,517 +1,57 @@
 [
   {
-    "pk": 22,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_logentry",
-      "name": "Can add log entry",
-      "content_type": 8
-    }
-  },
-  {
-    "pk": 23,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_logentry",
-      "name": "Can change log entry",
-      "content_type": 8
-    }
-  },
-  {
-    "pk": 24,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_logentry",
-      "name": "Can delete log entry",
-      "content_type": 8
-    }
-  },
-  {
-    "pk": 4,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_group",
-      "name": "Can add group",
-      "content_type": 2
-    }
-  },
-  {
-    "pk": 5,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_group",
-      "name": "Can change group",
-      "content_type": 2
-    }
-  },
-  {
-    "pk": 6,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_group",
-      "name": "Can delete group",
-      "content_type": 2
-    }
-  },
-  {
-    "pk": 10,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_message",
-      "name": "Can add message",
-      "content_type": 4
-    }
-  },
-  {
-    "pk": 11,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_message",
-      "name": "Can change message",
-      "content_type": 4
-    }
-  },
-  {
-    "pk": 12,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_message",
-      "name": "Can delete message",
-      "content_type": 4
-    }
-  },
-  {
+    "model": "openletsweb.content",
     "pk": 1,
-    "model": "auth.permission",
     "fields": {
-      "codename": "add_permission",
-      "name": "Can add permission",
-      "content_type": 1
+      "name": "intro",
+      "time_updated": "2024-10-07T00:49:29.420Z",
+      "body": "",
+      "author": 1,
+      "site": 1
     }
   },
   {
+    "model": "openletsweb.content",
     "pk": 2,
-    "model": "auth.permission",
     "fields": {
-      "codename": "change_permission",
-      "name": "Can change permission",
-      "content_type": 1
+      "name": "about",
+      "time_updated": "2024-10-07T00:49:29.420Z",
+      "body": "about",
+      "author": 1,
+      "site": 1
     }
   },
   {
+    "model": "openletsweb.content",
     "pk": 3,
-    "model": "auth.permission",
     "fields": {
-      "codename": "delete_permission",
-      "name": "Can delete permission",
-      "content_type": 1
+      "name": "news_header",
+      "time_updated": "2024-10-07T00:49:29.420Z",
+      "body": "news_header",
+      "author": 1,
+      "site": 1
     }
   },
   {
-    "pk": 7,
-    "model": "auth.permission",
+    "model": "sites.site",
+    "pk": 1,
     "fields": {
-      "codename": "add_user",
-      "name": "Can add user",
-      "content_type": 3
+      "domain": "example.com",
+      "name": "example.com"
     }
   },
   {
-    "pk": 8,
-    "model": "auth.permission",
+    "model": "openletsweb.content",
+    "pk": 4,
     "fields": {
-      "codename": "change_user",
-      "name": "Can change user",
-      "content_type": 3
+      "name": "contact",
+      "time_updated": "2024-10-07T00:49:29.420Z",
+      "body": "contact",
+      "author": 1,
+      "site": 1
     }
   },
-  {
-    "pk": 9,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_user",
-      "name": "Can delete user",
-      "content_type": 3
-    }
-  },
-  {
-    "pk": 13,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_contenttype",
-      "name": "Can add content type",
-      "content_type": 5
-    }
-  },
-  {
-    "pk": 14,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_contenttype",
-      "name": "Can change content type",
-      "content_type": 5
-    }
-  },
-  {
-    "pk": 15,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_contenttype",
-      "name": "Can delete content type",
-      "content_type": 5
-    }
-  },
-  {
-    "pk": 28,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_balance",
-      "name": "Can add balance",
-      "content_type": 10
-    }
-  },
-  {
-    "pk": 29,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_balance",
-      "name": "Can change balance",
-      "content_type": 10
-    }
-  },
-  {
-    "pk": 30,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_balance",
-      "name": "Can delete balance",
-      "content_type": 10
-    }
-  },
-  {
-    "pk": 43,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_currency",
-      "name": "Can add currency",
-      "content_type": 15
-    }
-  },
-  {
-    "pk": 44,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_currency",
-      "name": "Can change currency",
-      "content_type": 15
-    }
-  },
-  {
-    "pk": 45,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_currency",
-      "name": "Can delete currency",
-      "content_type": 15
-    }
-  },
-  {
-    "pk": 34,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_exchangerate",
-      "name": "Can add exchange rate",
-      "content_type": 12
-    }
-  },
-  {
-    "pk": 35,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_exchangerate",
-      "name": "Can change exchange rate",
-      "content_type": 12
-    }
-  },
-  {
-    "pk": 36,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_exchangerate",
-      "name": "Can delete exchange rate",
-      "content_type": 12
-    }
-  },
-  {
-    "pk": 25,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_person",
-      "name": "Can add person",
-      "content_type": 9
-    }
-  },
-  {
-    "pk": 26,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_person",
-      "name": "Can change person",
-      "content_type": 9
-    }
-  },
-  {
-    "pk": 27,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_person",
-      "name": "Can delete person",
-      "content_type": 9
-    }
-  },
-  {
-    "pk": 31,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_personbalance",
-      "name": "Can add person balance",
-      "content_type": 11
-    }
-  },
-  {
-    "pk": 32,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_personbalance",
-      "name": "Can change person balance",
-      "content_type": 11
-    }
-  },
-  {
-    "pk": 33,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_personbalance",
-      "name": "Can delete person balance",
-      "content_type": 11
-    }
-  },
-  {
-    "pk": 49,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_personresolution",
-      "name": "Can add person resolution",
-      "content_type": 17
-    }
-  },
-  {
-    "pk": 50,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_personresolution",
-      "name": "Can change person resolution",
-      "content_type": 17
-    }
-  },
-  {
-    "pk": 51,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_personresolution",
-      "name": "Can delete person resolution",
-      "content_type": 17
-    }
-  },
-  {
-    "pk": 46,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_resolution",
-      "name": "Can add resolution",
-      "content_type": 16
-    }
-  },
-  {
-    "pk": 47,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_resolution",
-      "name": "Can change resolution",
-      "content_type": 16
-    }
-  },
-  {
-    "pk": 48,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_resolution",
-      "name": "Can delete resolution",
-      "content_type": 16
-    }
-  },
-  {
-    "pk": 37,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_transaction",
-      "name": "Can add transaction",
-      "content_type": 13
-    }
-  },
-  {
-    "pk": 38,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_transaction",
-      "name": "Can change transaction",
-      "content_type": 13
-    }
-  },
-  {
-    "pk": 39,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_transaction",
-      "name": "Can delete transaction",
-      "content_type": 13
-    }
-  },
-  {
-    "pk": 40,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_transactionrecord",
-      "name": "Can add transaction record",
-      "content_type": 14
-    }
-  },
-  {
-    "pk": 41,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_transactionrecord",
-      "name": "Can change transaction record",
-      "content_type": 14
-    }
-  },
-  {
-    "pk": 42,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_transactionrecord",
-      "name": "Can delete transaction record",
-      "content_type": 14
-    }
-  },
-  {
-    "pk": 52,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_content",
-      "name": "Can add content",
-      "content_type": 18
-    }
-  },
-  {
-    "pk": 53,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_content",
-      "name": "Can change content",
-      "content_type": 18
-    }
-  },
-  {
-    "pk": 54,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_content",
-      "name": "Can delete content",
-      "content_type": 18
-    }
-  },
-  {
-    "pk": 55,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_newspost",
-      "name": "Can add news post",
-      "content_type": 19
-    }
-  },
-  {
-    "pk": 56,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_newspost",
-      "name": "Can change news post",
-      "content_type": 19
-    }
-  },
-  {
-    "pk": 57,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_newspost",
-      "name": "Can delete news post",
-      "content_type": 19
-    }
-  },
-  {
-    "pk": 16,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_session",
-      "name": "Can add session",
-      "content_type": 6
-    }
-  },
-  {
-    "pk": 17,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_session",
-      "name": "Can change session",
-      "content_type": 6
-    }
-  },
-  {
-    "pk": 18,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_session",
-      "name": "Can delete session",
-      "content_type": 6
-    }
-  },
-  {
-    "pk": 19,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "add_site",
-      "name": "Can add site",
-      "content_type": 7
-    }
-  },
-  {
-    "pk": 20,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "change_site",
-      "name": "Can change site",
-      "content_type": 7
-    }
-  },
-  {
-    "pk": 21,
-    "model": "auth.permission",
-    "fields": {
-      "codename": "delete_site",
-      "name": "Can delete site",
-      "content_type": 7
-    }
-  },
+
   {
     "pk": 1,
     "model": "auth.user",
@@ -525,7 +65,7 @@
       "last_login": "2011-11-17 23:14:24",
       "groups": [],
       "user_permissions": [],
-      "password": "sha1$687ae$20c6ecc7dd702f0c6fc3cf069823d386478cb5a5",
+      "password": "pbkdf2_sha256$870000$ehlLN5AQTYlrbIHd336jLl$l6ylQuBX8aFrHZLsmQmEuYRsfO5fL4UT8r/QskuyKy0=",
       "email": "testinga@example.com",
       "date_joined": "2011-11-02 21:57:23"
     }
@@ -543,7 +83,7 @@
       "last_login": "2011-11-22 22:46:27",
       "groups": [],
       "user_permissions": [],
-      "password": "sha1$35423$fcd8fa25effbb80fa5d78ef963f77a72b4e79553",
+      "password": "pbkdf2_sha256$870000$ehlLN5AQTYlrbIHd336jLl$l6ylQuBX8aFrHZLsmQmEuYRsfO5fL4UT8r/QskuyKy0=",
       "email": "userZ@example.com",
       "date_joined": "2011-11-22 22:46:27"
     }

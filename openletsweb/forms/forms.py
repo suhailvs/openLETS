@@ -206,7 +206,7 @@ class ExchangeRateForm(BaseFormMixin, forms.ModelForm):
         return model
 
 
-class UserCreateForm(BaseFormMixin, forms.ModelForm):
+class UserCreateForm(forms.ModelForm):
     """A form to create a new user."""
 
     class Meta:

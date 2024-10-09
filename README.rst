@@ -25,6 +25,8 @@ Installation
 ```
 $ pip install -r requirements.txt
 $ python manage.py migrate
-$ python manage.py loaddata datas
+$ python manage.py loaddata base
 $ python manage.py runserver
 ```
+
+login using: `userZ`, password: `admin`

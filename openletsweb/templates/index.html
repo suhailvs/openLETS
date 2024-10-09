@@ -1,4 +1,6 @@
-{% extends 'base.html' %}  {% block container %}
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+  {% block container %}
 <div class="hero-unit">{{ intro.body }}</div>
 
 <div class="row">
@@ -14,7 +16,7 @@
       own LETS.
     </p>
     <p>
-      <a class="btn" href="https://github.com/dnephin/openLETS">Download</a>
+      <a class="btn btn-primary" href="https://github.com/dnephin/openLETS">Download</a>
     </p>
   </div>
   <div class="span-one-third">
@@ -25,8 +27,8 @@
     </p>
 
     <form method="POST" action="{% url 'user_new' %}">
-      {% csrf_token %} {{ user_form.as_html }}
-      <p><input type="submit" class="btn" value="Register" /></p>
+      {% csrf_token %} {{ user_form|crispy }}
+      <p><input type="submit" class="btn btn-primary" value="Register" /></p>
     </form>
   </div>
   <div class="span-one-third">
@@ -35,7 +37,7 @@
 
     <form method="POST" action="{% url 'login' %}">
       {% csrf_token %} {{ login_form.as_html }}
-      <p><input type="submit" class="btn" value="Login" /></p>
+      <p><input type="submit" class="btn btn-primary" value="Login" /></p>
     </form>
     <p>Forget your <a href="{% url 'password_reset' %}">password</a>?</p>
   </div>

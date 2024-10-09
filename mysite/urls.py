@@ -43,7 +43,7 @@ urlpatterns = [
         name="transaction_reject",
     ),
     path("settings/user/update/", views.user_update, name="user_update"),
-    path("settings/user/new/", views.user_new, name="user_new"),
+    path("settings/user/new/", views.SignUpView.as_view(), name="user_new"),
     path("settings/person/update/", views.person_update, name="person_update"),
     path("exchange_rate/new/", views.exchange_rate_new, name="exchange_rate_new"),
     path(

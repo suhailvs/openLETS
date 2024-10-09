@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "crispy_forms",
+    "crispy_bootstrap5",
     "core",
     "openletsweb",
 ]
@@ -127,3 +129,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/home/"
 STATIC_URL = "/m/"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+# Third party apps configuration
+CRISPY_TEMPLATE_PACK = "bootstrap5"
