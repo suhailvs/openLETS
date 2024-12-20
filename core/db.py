@@ -16,7 +16,7 @@ from core import models
 def get_balance(persona, personb, currency):
     """Load a balance between two persons."""
     return (
-        models.PersonBalance.objects.select_related("balance" "balance__persons")
+        models.PersonBalance.objects.select_related("balance")
         .get(person=persona, balance__persons=personb, balance__currency=currency)
         .balance
     )
