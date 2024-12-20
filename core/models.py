@@ -51,7 +51,7 @@ class Person(m.Model):
     user = m.OneToOneField(User, on_delete=m.CASCADE)
     default_currency = currency_field(null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.user.username
 
     def transaction_records(self):
