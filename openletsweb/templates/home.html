@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
 {% block container %}
-	<div class="content">
-
-		<div class="row">
+	
 	{% block sidebar %}
-	<div class="span3 fixed">
+	
 		<div class="well">
 			<h5>Menu</h5>
 			<ul class="unstyled">
@@ -18,10 +16,8 @@
 				<li><a href="#export">Export</a></li>
 			</ul>
 	</div>
-	</div>
+	
 	{% endblock %}
-
-	<div class="span13 offset3">
 
 	{% block messages %}
 	{% if messages %}
@@ -94,14 +90,14 @@
 				{% endif %}
 			</td>
 			<td class="">
-				<a href="{% url 'transaction_confirm record.id' %}" class="btn small success">confirm</a>
+				<a href="{% url 'transaction_confirm' record.id %}" class="btn small success">confirm</a>
 				<a data-controls-modal="trans-modify-modal-{{ record.id }}" 
 					data-keyboard="true"
 					data-backdrop="true"
 					href="#"
 					class="btn small"
 				>modify</a>
-				<a href="{% url 'transaction_reject record.id' %}" class="btn small danger">reject</a>
+				<a href="{% url 'transaction_reject' record.id %}" class="btn small danger">reject</a>
 			</td>
 		</tr>
 		{% endfor %}
@@ -115,12 +111,12 @@
 					<h3>Modify Transaction</h3>
 				</div>
 
-				<form action="{% url 'transaction_modify record.id' %}" method="POST">
+				<form action="{% url 'transaction_modify' record.id %}" method="POST">
 				{% csrf_token %}
 				<div class="modal-body">
 					<p>Complete the form with the transaction details to submit your
 					modified version of the transaction.</p>
-					{{ record.modify_form.as_p }}
+					{{ record.modify_form }}
 				</div>
 				<div class="modal-footer">
 					<input type="submit" class="btn primary" value="Modify">
@@ -221,9 +217,7 @@
 	</section>
 
 	{% endblock %}
-	</div>
 
-		</div>
-	</div>
+		
 {% endblock %}
 
