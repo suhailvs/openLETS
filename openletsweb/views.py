@@ -336,6 +336,8 @@ def news(request):
 
 
 def export_data(request):
+    from django.http import JsonResponse
+
     """Export all data for a user."""
     data = {
         "balances": [
@@ -349,4 +351,4 @@ def export_data(request):
             rate.export_data() for rate in db.get_exchange_rates(request.user)
         ],
     }
-    return HttpResponse(json.dumps(data), mimetype="application/json")
+    return JsonResponse(data)
