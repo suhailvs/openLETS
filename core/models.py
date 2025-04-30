@@ -1,18 +1,39 @@
-from django.db import models as m
-from django.contrib.auth.models import User
+from django.db import models
+
+from django.contrib.auth.models import AbstractUser
+
 from decimal import Decimal
 import itertools
 # Create your models here.
-class Person(m.Model):
-    """A person. This model is the auth profile model."""
 
-    user = m.OneToOneField(User, on_delete=m.CASCADE)
-    default_currency =  m.ForeignKey("Currency", on_delete=m.CASCADE, null=True)
+
+class User(AbstractUser):
+    default_currency =  models.ForeignKey("Currency", on_delete=models.CASCADE, null=True)
+
+
+    # def transaction_records(self):
+    #     return itertools.chain(
+    #         self.transaction_records_creator, self.transaction_records_target
+    #     )
+
+
+class Currency(models.Model):
+    """A currency that can be used for exchange."""
+
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    decimal_places = models.IntegerField(default=0)
+    default = models.BooleanField(default=False)
+    time_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user.username
+        return self.name
 
-    def transaction_records(self):
-        return itertools.chain(
-            self.transaction_records_creator, self.transaction_records_target
-        )
+    def value_of(self, value):
+        """The decimal value of 'value' in this currency."""
+        if not self.decimal_places:
+            return Decimal(value)
+        return Decimal(value) / (10**self.decimal_places)
+
+    def value_repr(self, value):
+        return ("%%.%df %%s" % self.decimal_places) % (self.value_of(value), self)
