@@ -1,0 +1,93 @@
+[
+  {
+      "model": "core.user",
+      "pk": 1,
+      "fields": {
+          "password": "pbkdf2_sha256$870000$woI1yI8nMPOEeJnl3bxnui$RsDuyKHUULtLMC6dKJz7hbynghvFfldv32yfGk/kGEQ=",
+          "last_login": "2025-04-30T14:03:46.675Z",
+          "is_superuser": true,
+          "username": "admin",
+          "first_name": "",
+          "last_name": "",
+          "email": "",
+          "is_staff": true,
+          "is_active": true,
+          "date_joined": "2025-04-30T13:46:58.566Z",
+          "default_currency": null,
+          "groups": [],
+          "user_permissions": []
+      }
+  },
+  {
+      "model": "core.user",
+      "pk": 2,
+      "fields": {
+          "password": "pbkdf2_sha256$870000$TPfU5ZYDXEb4M9uv4RRax7$ODdWKfA/CD8Tzds35LI6tr0AkKjLVRGETQmrQ8/FO20=",
+          "last_login": "2025-04-30T13:48:37.461Z",
+          "is_superuser": false,
+          "username": "suhail",
+          "first_name": "Suhail",
+          "last_name": "",
+          "email": "",
+          "is_staff": false,
+          "is_active": true,
+          "date_joined": "2025-04-30T13:47:30Z",
+          "default_currency": null,
+          "groups": [],
+          "user_permissions": []
+      }
+  },
+  {
+      "model": "core.user",
+      "pk": 3,
+      "fields": {
+          "password": "pbkdf2_sha256$870000$4iAmcP2D63gh5HUm2PCBso$uqEtZkZXqyhMAV1ie3dxFQxHAuJoM09nO7EMLm6ju6o=",
+          "last_login": "2025-04-30T13:54:27.559Z",
+          "is_superuser": false,
+          "username": "nusra",
+          "first_name": "",
+          "last_name": "",
+          "email": "",
+          "is_staff": false,
+          "is_active": true,
+          "date_joined": "2025-04-30T13:48:15.437Z",
+          "default_currency": null,
+          "groups": [],
+          "user_permissions": []
+      }
+  },
+  {
+      "model": "core.currency",
+      "pk": 1,
+      "fields": {
+          "name": "currencyV",
+          "description": "currency test",
+          "decimal_places": 1,
+          "default": false,
+          "time_created": "2024-10-26T14:39:22.900Z"
+      }
+  },
+  {
+      "model": "core.currency",
+      "pk": 2,
+      "fields": {
+          "name": "dollar",
+          "description": "dollar",
+          "decimal_places": 2,
+          "default": false,
+          "time_created": "2025-04-30T14:04:07.451Z"
+      }
+  },
+  {
+      "model": "core.currency",
+      "pk": 3,
+      "fields": {
+          "name": "rupee",
+          "description": "indian rupee",
+          "decimal_places": 2,
+          "default": false,
+          "time_created": "2025-04-30T14:04:40.133Z"
+      }
+  }
+  ]
+  
