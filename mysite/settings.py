@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # my apps
     "core.apps.CoreConfig",
+    "openletsweb.apps.OpenletswebConfig",
 ]
 
 MIDDLEWARE = [
