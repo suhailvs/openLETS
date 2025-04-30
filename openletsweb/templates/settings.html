@@ -114,7 +114,7 @@
 		  <td>{{ exchange.time_created }}</td>
 		  <td>
 		    <a href="#" class="btn small">Modify</a>
-			<a href="{% url 'exchange_rate_delete exchange.id' %}" class="btn small danger">Remove</a>
+			<a href="{% url 'exchange_rate_delete' exchange.id %}" class="btn small danger">Remove</a>
 		  </td>
 		</tr>
 	  {% endfor %}

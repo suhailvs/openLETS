@@ -82,12 +82,8 @@ class Balance(CurrencyMixin, m.Model):
     )
     time_updated = m.DateTimeField(auto_now=True)
 
-    def __unicode__(self):
-        return "Balance of %s credited to %s, debt from %s" % (
-            self.value_repr,
-            self.credited,
-            self.debted,
-        )
+    def __str__(self):
+        return f"Balance of {self.value_repr} credited to {self.credited}, debt from {self.debted}"
 
     @property
     def credited(self):
@@ -105,8 +101,8 @@ class PersonBalance(m.Model):
     balance = m.ForeignKey("Balance", on_delete=m.CASCADE)
     credited = m.BooleanField()
 
-    def __unicode__(self):
-        return "PersonBalance for %s and %s" % (self.person, self.balance)
+    def __str__(self):
+        return "PersonBalance for {self.person} and {self.balance}"
 
     @property
     def other_person(self):
@@ -337,7 +333,7 @@ class Currency(m.Model):
     default = m.BooleanField(default=False)
     time_created = m.DateTimeField(auto_now_add=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def value_of(self, value):
