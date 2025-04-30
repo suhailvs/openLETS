@@ -1,8 +1,8 @@
 from django.contrib import admin
 from core.models import * 
 
-
-admin.site.register(User)
+from django.contrib.auth.admin import UserAdmin
+admin.site.register(User,UserAdmin)
 admin.site.register(UserBalance)
 admin.site.register(Balance)
 admin.site.register(Transaction)
