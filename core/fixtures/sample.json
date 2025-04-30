@@ -4,7 +4,7 @@
       "pk": 1,
       "fields": {
           "password": "pbkdf2_sha256$870000$woI1yI8nMPOEeJnl3bxnui$RsDuyKHUULtLMC6dKJz7hbynghvFfldv32yfGk/kGEQ=",
-          "last_login": "2025-04-30T13:47:13.686Z",
+          "last_login": "2025-04-30T14:03:46.675Z",
           "is_superuser": true,
           "username": "admin",
           "first_name": "",
@@ -42,7 +42,7 @@
       "pk": 3,
       "fields": {
           "password": "pbkdf2_sha256$870000$4iAmcP2D63gh5HUm2PCBso$uqEtZkZXqyhMAV1ie3dxFQxHAuJoM09nO7EMLm6ju6o=",
-          "last_login": null,
+          "last_login": "2025-04-30T13:54:27.559Z",
           "is_superuser": false,
           "username": "nusra",
           "first_name": "",
@@ -57,14 +57,37 @@
       }
   },
   {
-    "pk": 1,
-    "model": "core.currency",
-    "fields": {
-      "default": false,
-      "time_created": "2024-10-26T14:39:22.900Z",
-      "name": "currencyV",
-      "decimal_places": 1,
-      "description": "rW-xO\nmp.LMIxRuCpnYqJfk\n\n.pUnwc S cmyHx,QMYWIJmEBsDBcUeUfPDhZL.YarKVVu,xmoFUn!nZkCjBJAd!WYbrqewrvqFveg-eaGetCNAh\nR!lQawFkTb!!xLsKOZcsrpjNPPtU,gS!sAmmFTdMRXigzVWZkBczqZ xDsspbUBJE,GsjivnvykEvCEjNhLRLhM"
-    }
+      "model": "core.currency",
+      "pk": 1,
+      "fields": {
+          "name": "currencyV",
+          "description": "currency test",
+          "decimal_places": 1,
+          "default": false,
+          "time_created": "2024-10-26T14:39:22.900Z"
+      }
+  },
+  {
+      "model": "core.currency",
+      "pk": 2,
+      "fields": {
+          "name": "dollar",
+          "description": "dollar",
+          "decimal_places": 2,
+          "default": false,
+          "time_created": "2025-04-30T14:04:07.451Z"
+      }
+  },
+  {
+      "model": "core.currency",
+      "pk": 3,
+      "fields": {
+          "name": "rupee",
+          "description": "indian rupee",
+          "decimal_places": 2,
+          "default": false,
+          "time_created": "2025-04-30T14:04:40.133Z"
+      }
   }
-]
+  ]
+  

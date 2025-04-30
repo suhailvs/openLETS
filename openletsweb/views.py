@@ -189,7 +189,7 @@ def exchange_rate_new(request):
 @login_required
 @require_GET
 def exchange_rate_delete(request, rate_id):
-    exchange_rate = db.user.ExchangeRate.objects.get(
+    exchange_rate = db.models.ExchangeRate.objects.get(
         id=rate_id, user=request.user
     )
     exchange_rate.delete()

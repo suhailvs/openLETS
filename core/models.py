@@ -44,12 +44,10 @@ class DictableModel(object):
     
 class User(AbstractUser):
     default_currency = currency_field(null=True, blank=True)
-
-
-    # def transaction_records(self):
-    #     return itertools.chain(
-    #         self.transaction_records_creator, self.transaction_records_target
-    #     )
+    def transaction_records(self):
+        return itertools.chain(
+            self.transaction_records_creator, self.transaction_records_target
+        )
 
 
 class Currency(models.Model):
