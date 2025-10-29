@@ -329,4 +329,4 @@ def export_data(request):
             rate.export_data() for rate in db.get_exchange_rates(request.user)
         ],
     }
-    return HttpResponse(json.dumps(data), mimetype="application/json")
+    return HttpResponse(json.dumps(data), content_type="application/json")
